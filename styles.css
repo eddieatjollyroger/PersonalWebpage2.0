@@ -12,7 +12,14 @@ body, html {
   overflow-x: hidden;
   transition: background 0.5s ease;
 }
-
+.output-skills{
+  columns: 2;
+  font-family: 'Fira Code', monospace;
+}
+.output-projects{
+  margin-left: -0.5em;
+  font-family: 'Fira Code', monospace;
+}
 /* Subtle grid background */
 .background {
   position: fixed;
@@ -62,14 +69,14 @@ body, html {
 /* Terminal window */
 .terminal-window {
   position: fixed; /* so it floats */
-  top: 100px;
+  /*top: 100px;
   left: 100px;
-  width: 600px;
+  width: 600px;*/
   max-width: 90vw;
   max-height: 80vh;
   background: rgba(0, 0, 0, 0.9);
   color: #33ff33;
-  font-family: 'Fira Code', monospace;
+  font-family: "Press Start 2P", monospace; 
   font-size: 16px;
   border-radius: 8px;
   box-shadow: 0 0 15px #33ff33aa;
@@ -89,11 +96,13 @@ body, html {
   align-items: center;
   border-bottom: 1px solid #33ff33;
   user-select: none; /* no text selection on header */
+  background: #262626;
+  
 }
 
 .terminal-header .title {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 0.75rem;
 }
 
 .buttons .button {
@@ -140,6 +149,12 @@ h1 {
 }
 .output {
   margin-left: 1.8em;
+  font-family: 'Fira Code', monospace;
+
+}
+
+#open-terminal{  
+  font-family: "Press Start 2P", monospace;
 }
 
 /* Links */
@@ -223,8 +238,5 @@ button:hover {
   }
   .output {
     margin-left: 1em;
-  }
-  .terminal-header .title {
-    display: none;
   }
 }

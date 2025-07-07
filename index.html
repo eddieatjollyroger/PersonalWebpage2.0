@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Terminal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <div class="background"></div>
-    <div class="matrix-container"></div>
+  <div class="matrix-container"></div>
 
   <main class="terminal-window">
     <header class="terminal-header">
@@ -18,29 +21,68 @@
         <span class="button minimize"></span>
         <span class="button maximize"></span>
       </div>
-      <div class="title">~/portfolio</div>
+      <div class="title">~/joaopacheco/documents/portfolio</div>
     </header>
     <section class="terminal-content">
-      <h1>Hi, I'm </h1>
+
       <p class="line"><span class="prompt">$</span> whoami</p>
-      <p class="output">Web developer passionate about clean code and retro aesthetics.</p>
+      <p class="output">
+Programming since before I even knew what programming was, I've always been interested in tinkering with software. <br>
+Wanting to stand out and customize my own OS experience led me down a path to loving the beauty of software creation.
+      </p>
 
       <p class="line"><span class="prompt">$</span> skills</p>
-      <p class="output">stuff goes here</p>
-
-      <p class="line"><span class="prompt">$</span> projects</p>
-      <ul class="output">
-        <li><a href="https://github.com/yourusername/project1" target="_blank">Project 1</a></li>
-        <li><a href="https://github.com/yourusername/project2" target="_blank">Project 2</a></li>
+      <ul class="output-skills">
+        <li>
+        C# / .NET Core<br>
+        </li>
+        <li>
+        JAVA / Spring<br> </li>
+        <li>
+        JavaScript (ES6+), TypeScript, Node.js<br> </li>
+        <li>
+        HTML5, CSS3<br> </li>
+        <li>
+        SQL, MongoDB<br> </li>
+        <li>
+        Git, CI/CD workflows<br> </li>
+        <li>
+        Azure & AWS cloud solutions<br> </li>
       </ul>
 
-      <p class="line"><span class="prompt">$</span> contact</p>
-      <p class="output">
-        Email: <a href="mailto:you@example.com">you@example.com</a>
-      </p>
-      <p class="output">
-        <button id="open-terminal">Open Terminal</button>
-      </p>
+          <p class="line"><span class="prompt">$</span> projects</p>
+          <ul class="output-projects">
+            <li>
+              <a href="https://www.aguadeluso.pt" target="_blank">
+                Luso – Dynamic website built with the tech above
+              </a>
+            </li>
+            <li>
+              <a href="https://buildingthefuture.pt" target="_blank">
+                Building the Future – Website for the tech podcast sponsored by Microsoft
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pousadasjuventude.pt" target="_blank">
+                Pousadas da Juventude – Website, online store and reservation engine
+              </a>
+            </li>
+            <li>
+              <a href="https://terminal.joaopacheco.me" target="_blank">
+                And many more, type 'projects' on the terminal for a larger list of projects
+              </a>
+            </li>
+          </ul>
+
+          <p class="line"><span class="prompt">$</span> contact</p>
+          <p class="output">
+            Find me<br>
+            Email: <a href="mailto:hello@joaopacheco.me">hello@joaopacheco.me</a><br>
+            LinkedIn: <a href="https://linkedin.com/in/joaocodesurfer" target="_blank">mylinkedin.com</a>
+          </p>
+          <p class="output">
+            <button id="open-terminal">Open Terminal</button>
+          </p>
     </section>
   </main>
 
@@ -55,7 +97,9 @@
       <button id="close-terminal">Close</button>
     </div>
   </div>
-    <script src="script.js"></script>
+
+  <script src="script.js"></script>
   <script src="terminal.js"></script>
 </body>
+
 </html>
