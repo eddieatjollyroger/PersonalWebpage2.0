@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Terminal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="open-terminal">Open Terminal</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm [Your Name], a web developer passionate about clean code and retro aesthetics.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="https://github.com/yourusername/project1" target="_blank">Project 1</a></li>
+        <li><a href="https://github.com/yourusername/project2" target="_blank">Project 2</a></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
+
+  <!-- Terminal Modal -->
+  <div id="terminal-modal">
+    <div id="terminal">
+      <div id="output"></div>
+      <div id="input-line">
+        <span class="prompt">$</span>
+  <div id="command-input" contenteditable="true"></div>
+      </div>
+      <button id="close-terminal">Close</button>
+    </div>
+  </div>
+
+  <script src="terminal.js"></script>
+</body>
+</html>
