@@ -1,110 +1,230 @@
-body {
+/* Base */
+body, html {
   margin: 0;
-  background: black;
+  padding: 0;
+  background: #0d0d0d;
   color: #33ff33;
-  font-family: "Press Start 2P", monospace;
-  font-size: 14px;
+  font-family: "Press Start 2P", monospace; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
 }
 
-header {
-  padding: 1em;
-  text-align: center;
+/* Subtle grid background */
+.background {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(51,255,51,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: -2;
+  transition: transform 0.1s ease;
 }
 
-nav a, nav button {
-  color: #33ff33;
-  text-decoration: none;
-  margin: 0 1em;
-  background: none;
-  border: 1px solid #33ff33;
-  padding: 0.5em;
-  cursor: pointer;
-  font: inherit;
-}
-
-nav button:hover, nav a:hover {
-  background: #33ff33;
-  color: black;
-}
-
-main {
-  max-width: 800px;
-  margin: 2em auto;
-  padding: 0 1em;
-}
-
-section {
-  margin-bottom: 2em;
-}
-
-a {
-  color: #33ff33;
-}
-
-#terminal-modal {
-  display: none;
+.matrix-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.95);
-  justify-content: center;
-  align-items: center;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
 }
 
-#terminal {
-  background: black;
-  border: 1px solid #33ff33;
-  padding: 1em;
-  width: 90%;
-  max-width: 800px;
-  height: 70%;
-  overflow-y: auto;
-  position: relative;
+.matrix-column {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgba(0, 255, 0, 0.1);
+  animation: fall linear infinite;
+  white-space: pre;
+  user-select: none;
 }
 
-
-.prompt {
-  margin-right: 0.5em;
-}
-
-#command-input {
-  display: inline;
-  background: transparent;
-  border: none;
-  color: inherit;
-  font: inherit;
-  outline: none;
-  min-width: 1ch;
-  width: 100%;
-  min-height: 1em;
-  white-space: pre-wrap;
-  word-break: break-word;
-  caret-color: transparent;
-}
-
-.blinking-cursor {
-  animation: blink 1s steps(2, start) infinite;
-}
-#command-input::after {
-  content: '█';
-  animation: blink 1s steps(2, start) infinite;
-}
-@keyframes blink {
-  to {
-    visibility: hidden;
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
   }
 }
 
-#close-terminal {
-  position: absolute;
-  top: 0.5em;
-  right: 0.5em;
-  background: none;
+
+/* Terminal window */
+.terminal-window {
+  position: fixed; /* so it floats */
+  top: 100px;
+  left: 100px;
+  width: 600px;
+  max-width: 90vw;
+  max-height: 80vh;
+  background: rgba(0, 0, 0, 0.9);
+  color: #33ff33;
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #33ff33aa;
+  overflow: auto;
+  resize: both; /* enables resizing */
+  min-width: 320px;
+  min-height: 200px;
+  z-index: 10;
+  user-select: none; /* prevent text selection while dragging */
+}
+
+.terminal-header {
+  cursor: move; /* show drag cursor */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #33ff33;
+  user-select: none; /* no text selection on header */
+}
+
+.terminal-header .title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.buttons .button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.buttons .close {
+  background: #ff5f56;
+}
+
+.buttons .minimize {
+  background: #ffbd2e;
+}
+
+.buttons .maximize {
+  background: #27c93f;
+}
+
+.title {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.terminal-content {
+  padding: 1em;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #33ff33;
+  margin-top: 0;
+}
+
+/* Lines and outputs */
+.line {
+  margin: 1em 0 0.2em;
+}
+.prompt {
+  margin-right: 0.5em;
+}
+.output {
+  margin-left: 1.8em;
+}
+
+/* Links */
+a {
+  color: #33ff33;
+  text-decoration: underline;
+}
+a:hover {
+  color: #00ff00;
+}
+
+/* Buttons */
+button {
+  background: transparent;
   border: 1px solid #33ff33;
   color: #33ff33;
-  font: inherit;
-  padding: 0.3em;
+  padding: 0.5em 1em;
+  font-family: inherit;
   cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1em;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #33ff3310;
+}
+
+/* Fade in page */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Terminal Modal */
+#terminal-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+#terminal {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1em;
+  width: 90%;
+  max-width: 800px;
+  color: #33ff33;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  cursor: move; /* show it's draggable */
+}
+#input-line {
+  display: flex;
+  align-items: center;
+}
+#command-input {
+  background: transparent;
+  color: inherit;
+  border: none;
+  outline: none;
+  flex: 1;
+  min-height: 1em;
+}
+
+/* Smooth transitions for page change */
+* {
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.2em;
+  }
+  .output {
+    margin-left: 1em;
+  }
+  .terminal-header .title {
+    display: none;
+  }
 }

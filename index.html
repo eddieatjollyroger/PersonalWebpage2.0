@@ -4,54 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Terminal Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button id="open-terminal">Open Terminal</button>
-    </nav>
-  </header>
+  <div class="background"></div>
+    <div class="matrix-container"></div>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hi, I'm [Your Name], a web developer passionate about clean code and retro aesthetics.
-      </p>
-    </section>
+  <main class="terminal-window">
+    <header class="terminal-header">
+      <div class="buttons">
+        <span class="button close"></span>
+        <span class="button minimize"></span>
+        <span class="button maximize"></span>
+      </div>
+      <div class="title">~/portfolio</div>
+    </header>
+    <section class="terminal-content">
+      <h1>Hi, I'm </h1>
+      <p class="line"><span class="prompt">$</span> whoami</p>
+      <p class="output">Web developer passionate about clean code and retro aesthetics.</p>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
+      <p class="line"><span class="prompt">$</span> skills</p>
+      <p class="output">stuff goes here</p>
+
+      <p class="line"><span class="prompt">$</span> projects</p>
+      <ul class="output">
         <li><a href="https://github.com/yourusername/project1" target="_blank">Project 1</a></li>
         <li><a href="https://github.com/yourusername/project2" target="_blank">Project 2</a></li>
       </ul>
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p class="line"><span class="prompt">$</span> contact</p>
+      <p class="output">
+        Email: <a href="mailto:you@example.com">you@example.com</a>
+      </p>
+      <p class="output">
+        <button id="open-terminal">Open Terminal</button>
+      </p>
     </section>
   </main>
 
-  <!-- Terminal Modal -->
+  <!-- Terminal Modal (Optional) -->
   <div id="terminal-modal">
     <div id="terminal">
       <div id="output"></div>
       <div id="input-line">
         <span class="prompt">$</span>
-  <div id="command-input" contenteditable="true"></div>
+        <div id="command-input" contenteditable="true"></div>
       </div>
       <button id="close-terminal">Close</button>
     </div>
   </div>
-
+    <script src="script.js"></script>
   <script src="terminal.js"></script>
 </body>
 </html>

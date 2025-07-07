@@ -149,3 +149,29 @@ document.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
+
+const terminal = document.getElementById("terminal");
+let terminalisDragging = false;
+let terminaldragOffsetX = 0;
+let terminaldragOffsetY = 0;
+
+// Start dragging
+terminal.addEventListener("mousedown", (e) => {
+  terminalisDragging = true;
+  terminaldragOffsetX = e.clientX - terminal.getBoundingClientRect().left;
+  terminaldragOffsetY = e.clientY - terminal.getBoundingClientRect().top;
+});
+
+// Stop dragging
+document.addEventListener("mouseup", () => {
+  terminalisDragging = false;
+});
+
+// Handle dragging
+document.addEventListener("mousemove", (e) => {
+  if (terminalisDragging) {
+    terminal.style.position = "fixed";
+    terminal.style.left = `${e.clientX - terminaldragOffsetX}px`;
+    terminal.style.top = `${e.clientY - terminaldragOffsetY}px`;
+  }
+});
