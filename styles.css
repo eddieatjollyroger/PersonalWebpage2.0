@@ -12,12 +12,33 @@ body, html {
   overflow-x: hidden;
   transition: background 0.5s ease;
 }
+/*
+a, input, [contenteditable] {
+  cursor: none;  hide cursor 
+}
+*/
+a::after, input::after, [contenteditable]::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: #00ff00;
+  animation: blink 2s steps(1) infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 .output-skills{
+      margin-left: -0.5em;
   columns: 2;
   font-family: 'Fira Code', monospace;
 }
 .output-projects{
-  margin-left: -0.5em;
+      margin-left: -0.5em;
+  column-count: auto;
   font-family: 'Fira Code', monospace;
 }
 /* Subtle grid background */
@@ -90,21 +111,23 @@ body, html {
 
 .terminal-header {
   cursor: move; /* show drag cursor */
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #33ff33;
   user-select: none; /* no text selection on header */
   background: #262626;
-  
+  min-width: 320px;
 }
 
 .terminal-header .title {
   font-weight: bold;
   font-size: 0.75rem;
 }
-
+.buttons{
+  display:flex
+}
 .buttons .button {
   width: 12px;
   height: 12px;
@@ -132,6 +155,8 @@ body, html {
 
 .terminal-content {
   padding: 1em;
+  min-width: 320px;
+
 }
 
 h1 {
@@ -224,7 +249,57 @@ button:hover {
   outline: none;
   flex: 1;
   min-height: 1em;
+  display: flex;
+  caret-color: transparent;
 }
+#command-input.placeholder {
+  color: #666;
+  font-style: italic;
+  pointer-events: none;
+}
+/* Base scrollbar size */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track background */
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent; 
+}
+/* Thumb styling */
+::-webkit-scrollbar-thumb {
+  background-color: #00ff00;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #00ff00 0px,
+    #00ff00 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  border: 1px solid #00ff00;
+  border-radius: 0; /* NO rounding = square */
+  animation: pulse-glow 2s infinite;
+}
+
+/* On hover: more glow */
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 10px #00ff00;
+}
+
+/* Firefox styling (static color) */
+@-moz-document url-prefix(){
+* {
+  scrollbar-color: #00ff00 #000;
+}
+}
+
+
+
 
 /* Smooth transitions for page change */
 * {
@@ -238,5 +313,8 @@ button:hover {
   }
   .output {
     margin-left: 1em;
+  }
+  .terminal-header .title{
+    font-size: 0.65rem;
   }
 }
