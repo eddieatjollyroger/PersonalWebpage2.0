@@ -105,8 +105,9 @@ a::after, input::after, [contenteditable]::after {
   /*top: 100px;
   left: 100px;*/
   width: 75vw; 
+  height: 80vh;
   max-width: 90vw;
-  max-height: 80vh;
+  max-height: 90vh;
   background: rgba(0, 0, 0, 0.9);
   color: #33ff33;
   font-family: "Press Start 2P", monospace; 
