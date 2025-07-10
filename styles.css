@@ -128,7 +128,7 @@ a::after, input::after, [contenteditable]::after {
 
 .terminal-header .title {
   font-weight: bold;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 .buttons{
   display:flex
