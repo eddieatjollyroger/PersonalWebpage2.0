@@ -167,7 +167,7 @@ input.addEventListener("keydown", (e) => {
   if (historyIndex > 0) {
     historyIndex--;
     input.textContent = history[historyIndex];
-
+    placeCaretAtEnd(input);
   }
   e.preventDefault();
 }
