@@ -32,14 +32,25 @@ a::after, input::after, [contenteditable]::after {
 }
 
 .output-skills{
-      margin-left: -0.5em;
+    margin-left: -0.6em;
   columns: 2;
   font-family: 'Fira Code', monospace;
 }
+.output-skills li::marker{
+  content:"⌨";
+  text-shadow: 0 0 0px #33ff33aa;
+}
 .output-projects{
-      margin-left: -0.5em;
+  margin-left: -0.6em;
   column-count: auto;
   font-family: 'Fira Code', monospace;
+}
+.output-projects li{
+  margin-bottom: 1rem;
+}
+.output-projects li::marker{
+  content:"🖱";
+  text-shadow: 0 0 0px #33ff33aa;
 }
 /* Subtle grid background */
 .background {
