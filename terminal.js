@@ -21,7 +21,7 @@ const catAsciiArt = `
     `;
 
 const commands = {
-  help: "Available commands: help, about, projects, personal, tecnologies, contact, clear, hello, spin",
+  help: "Available commands: help, about, projects, personal, tecnologies, contact, clear, hello, spin, neofetch",
   about: "I am a Backend Developer who loves retro terminals, type projects to see a list of websites i've built or worked on",
   personal: "Firefox/Chrome Addon: Tab Explorer, Snake made with Unity Engine, Flappy bird during Hackathon, Linux fully dynamic rice(where my terminal love began), etc...",
   projects: "Built websites for: Avene, Ascendum, Banco De Portugal, Banco Economico, Eu Sou Digital, Luso, Minipreco, Mudar E Ganhar, Portugal Clinical Trials, Portugal Digital Summit, Parques de Sintra, Sagres, and many more...",
@@ -36,8 +36,59 @@ const commands = {
   tecnologies: "C#, .NET, JAVA, NodeJS, SQL, GIT, Azure, Umbraco, etc..",
   spin: "spinner",
   rat: ratAsciiArt,
-  cat: catAsciiArt
+  neofetch: () => { showNeofetch(); }
 };
+
+function showNeofetch() {
+  const asciiArt = `
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠘⢦⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⢳⡀⠀⠀⠀⠀⠀⣠⣾⠙⢦⣀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠔⠂
+⠀⠀⠀⠀⠀⠀⠀⢸⡿⣗⡲⠶⠖⠋⣡⣯⡀⠀⠈⠉⠓⠒⠲⢶⣶⡖⠋⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡼⠁⡿⢯⠙⠛⠋⣹⡇⠙⠲⢤⣀⣀⡤⠖⢫⠏⠀⠀⠀⠀⠀
+⠈⠙⠓⠶⢤⣴⣋⢀⣰⠃⠈⣿⡛⠉⣽⠙⠲⢤⡤⠞⢻⠀⢀⡏⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⢯⡙⢳⡲⢴⣇⣙⣄⣇⡤⠚⠉⡇⠀⢸⠀⢸⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣷⠀⣧⠀⣇⡼⢻⢿⡲⠤⣄⣧⠀⠸⡆⠈⣧⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢠⡇⣠⣿⡊⠙⢦⡞⠀⠳⣴⠋⠉⢉⡷⠿⠤⣌⣦⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⢾⣋⠁⠀⠙⢦⢸⡟⠉⠉⠙⣆⢠⠏⣠⠖⠋⠉⠉⠉⠓⠲⠤⡄
+⠀⠀⣠⠖⠋⠁⠀⠈⠙⠦⡀⠈⣿⣠⠤⠴⠶⠾⢿⣠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣆⡏⠀⠀⢀⣀⣀⣀⣻⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⡷⠚⠉⠉⠁⠀⠀⠀⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+`;
+
+  const info = `
+joaopacheco@myterminal
+OS: Arch btw
+Shell: zsh
+WM: i3-gaps
+Uptime: 13 minutes and 37 seconds
+Resolution: 8k @ 400hz
+Packages: 9000+
+Memory: 24GB/200PB                         
+┬│┬┌─┐┬─┐┌┬┐
+│││┌─┘├┬┘│││
+└┴┘└─┘┴└──┴┘
+`;
+
+  const container = document.createElement("div");
+  container.classList.add("output");
+  container.classList.add("neofetch");
+  container.style.alignItems = "flex-start";
+  container.style.gap = "2em";
+  container.style.whiteSpace = "pre";
+
+  const artDiv = document.createElement("div");
+  container.appendChild(artDiv);
+  typeWriter(asciiArt, artDiv, 15);
+
+  const infoDiv = document.createElement("div");
+  container.appendChild(infoDiv);
+  typeWriter(info, infoDiv);
+
+  document.getElementById("output").appendChild(container);
+}
 
 function typeWriter(text, container, speed = 30) {
   let i = 0;
@@ -146,42 +197,45 @@ input.addEventListener("keydown", (e) => {
       const art = document.createElement("div");
       output.appendChild(art);
       spinAnimation(art);
+    }
+    else if (cmd === "neofetch") {
+      commands.neofetch();
+    }
+    else if (commands[cmd]) {
+      const res = document.createElement("div");
+      output.appendChild(res);
+      typeWriter(commands[cmd], res);
+    } else {
+      const res = document.createElement("div");
+      typeWriter("Command not found. Type 'help'.", res);
+      output.appendChild(res);
+    }
 
-  } else if (commands[cmd]) {
-    const res = document.createElement("div");
-    output.appendChild(res);
-    typeWriter(commands[cmd], res);
-  } else {
-    const res = document.createElement("div");
-    typeWriter("Command not found. Type 'help'.", res);
-    output.appendChild(res);
+    input.textContent = "";
+    placeCaretAtEnd(input);
+
+    window.scrollTo(0, document.body.scrollHeight);
   }
-
-  input.textContent = "";
-  placeCaretAtEnd(input);
-
-  window.scrollTo(0, document.body.scrollHeight);
-}
 
   if (e.key === "ArrowUp") {
-  if (historyIndex > 0) {
-    historyIndex--;
-    input.textContent = history[historyIndex];
-    placeCaretAtEnd(input);
+    if (historyIndex > 0) {
+      historyIndex--;
+      input.textContent = history[historyIndex];
+      placeCaretAtEnd(input);
+    }
+    e.preventDefault();
   }
-  e.preventDefault();
-}
 
-if (e.key === "ArrowDown") {
-  if (historyIndex < history.length - 1) {
-    historyIndex++;
-    input.textContent = history[historyIndex];
-  } else {
-    historyIndex = history.length;
-    input.textContent = "";
+  if (e.key === "ArrowDown") {
+    if (historyIndex < history.length - 1) {
+      historyIndex++;
+      input.textContent = history[historyIndex];
+    } else {
+      historyIndex = history.length;
+      input.textContent = "";
+    }
+    e.preventDefault();
   }
-  e.preventDefault();
-}
 });
 
 // Auto-focus when the page loads
@@ -209,7 +263,7 @@ openBtn.addEventListener("click", () => {
 });
 
 terminal.addEventListener("click", () => {
-    document.getElementById("command-input").focus();
+  document.getElementById("command-input").focus();
 });
 
 closeBtn.addEventListener("click", () => {

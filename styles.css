@@ -17,7 +17,7 @@ a, input, [contenteditable] {
   cursor: none;  hide cursor 
 }
 */
-a::after, input::after, [contenteditable]::after {
+a::after{
   content: "";
   display: inline-block;
   width: 8px;
@@ -274,6 +274,20 @@ button:hover {
   font-style: italic;
   pointer-events: none;
 }
+#command-input::after {
+  content: '█';
+  animation: flicker 1s steps(2, start) infinite;
+  margin-top: -0.25rem;
+}
+.blink {
+  animation: flicker 1s steps(2, start) infinite;
+}
+
+@keyframes flicker {
+  to {
+    visibility: hidden;
+  }
+}
 /* Base scrollbar size */
 ::-webkit-scrollbar {
   width: 8px;
@@ -322,6 +336,9 @@ button:hover {
 * {
   transition: color 0.3s ease, background 0.3s ease;
 }
+.neofetch{
+  display:flex;
+}
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
@@ -334,4 +351,17 @@ button:hover {
   .terminal-header .title{
     font-size: 0.5rem;
   }
+ .neofetch{
+  display:inline-block;
+ }
+#command-input{
+  display: inline-block;
+}
+#command-input::after {
+  position: relative;
+  top:-2px;
+}
+#command-input br{
+  display:none;
+}
 }
