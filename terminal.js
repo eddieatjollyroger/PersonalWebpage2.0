@@ -67,9 +67,9 @@ Uptime: 13 minutes and 37 seconds
 Resolution: 8k @ 400hz
 Packages: 9000+
 Memory: 24GB/200PB                         
-┬│┬┌─┐┬─┐┌┬┐
+┬│┬──┐┬─┐┌┬┐
 │││┌─┘├┬┘│││
-└┴┘└─┘┴└──┴┘
+└┴┘└──┴└──┴┘
 `;
 
   const container = document.createElement("div");
