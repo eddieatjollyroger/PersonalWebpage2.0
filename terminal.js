@@ -30,7 +30,9 @@ const commands = {
   hello: "world!",
   tecnologies: "C#, .NET, JAVA, NodeJS, SQL, GIT, Azure, Umbraco, etc..",
   spin: "spinner",
+  cat: catAsciiArt,
   rat: ratAsciiArt,
+  ls: "these are not the files you are looking for",
   neofetch: () => { showNeofetch(); }
 };
 
