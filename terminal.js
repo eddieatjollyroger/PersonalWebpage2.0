@@ -25,12 +25,7 @@ const commands = {
   about: "I am a Backend Developer who loves retro terminals, type projects to see a list of websites i've built or worked on",
   personal: "Firefox/Chrome Addon: Tab Explorer, Snake made with Unity Engine, Flappy bird during Hackathon, Linux fully dynamic rice(where my terminal love began), etc...",
   projects: "Built websites for: Avene, Ascendum, Banco De Portugal, Banco Economico, Eu Sou Digital, Luso, Minipreco, Mudar E Ganhar, Portugal Clinical Trials, Portugal Digital Summit, Parques de Sintra, Sagres, and many more...",
-  contact: "Email: hello@joaopacheco.me",
-  projects2: `
-- <a href="https://github.com/yourname/project1" target="_blank">Project 1</a>
-- <a href="https://github.com/yourname/project2" target="_blank">Project 2</a>
-- <a href="https://github.com/yourname/project3" target="_blank">Project 3</a>
-  `,
+  contact: "Email me @ hello@joaopacheco.me",
   clear: "",
   hello: "world!",
   tecnologies: "C#, .NET, JAVA, NodeJS, SQL, GIT, Azure, Umbraco, etc..",
@@ -169,9 +164,9 @@ document.addEventListener("keydown", (e) => {
   // Optionally insert the key the user pressed
   // (Skip special keys like Shift, Control, etc.)
   if (e.key.length === 1) {
+    stopPlaceholderTyping(); // remove placeholder if running
     input.textContent = e.key;
     placeCaretAtEnd(input);
-    stopPlaceholderTyping(); // remove placeholder if running
   }
 });
 
@@ -234,6 +229,20 @@ input.addEventListener("keydown", (e) => {
       historyIndex = history.length;
       input.textContent = "";
     }
+    e.preventDefault();
+  }
+
+  if (e.key === "Tab") {
+    const cmd = input.textContent.trim().toLowerCase();
+    if (cmd.length) {
+      for (key in commands) { 
+        if(key.startsWith(cmd)){
+          console.log(key.startsWith(cmd))
+          input.textContent = key;
+          placeCaretAtEnd(input);
+        }
+    }
+  }
     e.preventDefault();
   }
 });
