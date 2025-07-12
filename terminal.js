@@ -24,7 +24,7 @@ const commands = {
   help: "Available commands: help, about, projects, personal, tecnologies, contact, clear, hello, spin, neofetch, echo",
   about: "I am a Backend Developer who loves retro terminals, type projects to see a list of websites i've built or worked on",
   personal: "Firefox/Chrome Addon: Tab Explorer, Snake made with Unity Engine, Flappy bird during Hackathon, Linux fully dynamic rice(where my terminal love began), etc...",
-  projects: "Built websites for: Avene, Ascendum, Banco De Portugal, Banco Economico, Eu Sou Digital, Luso, Minipreco, Mudar E Ganhar, Portugal Clinical Trials, Portugal Digital Summit, Parques de Sintra, Sagres, and many more...",
+  projects: "Built websites for: Avene, Ascendum, Banco De Portugal, Banco Economico, Brisa, Eu Sou Digital, Luso, Minipreco, Mudar E Ganhar, Portugal Clinical Trials, Portugal Digital Summit, Parques de Sintra, Sagres, and many more...",
   contact: "Email me @ hello@joaopacheco.me",
   clear: "",
   hello: "world!",
