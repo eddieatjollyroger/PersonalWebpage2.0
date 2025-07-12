@@ -21,7 +21,7 @@ const catAsciiArt = `
     `;
 
 const commands = {
-  help: "Available commands: help, about, projects, personal, tecnologies, contact, clear, hello, spin, neofetch",
+  help: "Available commands: help, about, projects, personal, tecnologies, contact, clear, hello, spin, neofetch, echo",
   about: "I am a Backend Developer who loves retro terminals, type projects to see a list of websites i've built or worked on",
   personal: "Firefox/Chrome Addon: Tab Explorer, Snake made with Unity Engine, Flappy bird during Hackathon, Linux fully dynamic rice(where my terminal love began), etc...",
   projects: "Built websites for: Avene, Ascendum, Banco De Portugal, Banco Economico, Eu Sou Digital, Luso, Minipreco, Mudar E Ganhar, Portugal Clinical Trials, Portugal Digital Summit, Parques de Sintra, Sagres, and many more...",
@@ -33,7 +33,8 @@ const commands = {
   cat: catAsciiArt,
   rat: ratAsciiArt,
   ls: "these are not the files you are looking for",
-  neofetch: () => { showNeofetch(); }
+  neofetch: () =>{showNeofetch();},
+  echo: () => {runEchocommand();}
 };
 
 function showNeofetch() {
@@ -85,6 +86,20 @@ Memory: 24GB/200PB
   typeWriter(info, infoDiv);
 
   document.getElementById("output").appendChild(container);
+}
+
+function runEchocommand()
+{
+    const res = document.createElement("div");
+    output.appendChild(res);
+    const echoStr = input.textContent.trim().toLowerCase();
+    const trimmed = echoStr.substring(echoStr.indexOf("echo")+4)
+    if(trimmed)
+      {
+    typeWriter(trimmed, res);}
+    else{
+    typeWriter("the echo command echoes what you type after 'echo'", res);
+  }
 }
 
 function typeWriter(text, container, speed = 30) {
@@ -198,6 +213,9 @@ input.addEventListener("keydown", (e) => {
     else if (cmd === "neofetch") {
       commands.neofetch();
     }
+    else if (cmd.startsWith("echo")) {
+    commands.echo();
+  }
     else if (commands[cmd]) {
       const res = document.createElement("div");
       output.appendChild(res);
